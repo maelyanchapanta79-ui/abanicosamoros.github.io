@@ -72,8 +72,8 @@
   .btn-cta span { position: relative; z-index: 1; }
   .btn-ghost-hero { padding: 16px 40px; background: transparent; color: var(--ink); border: 1px solid rgba(26,10,14,0.2); font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; font-weight: 500; }
   .btn-ghost-hero:hover { border-color: var(--crimson); color: var(--crimson); }
-  .hero-right { position: relative; overflow: hidden; }
-  .hero-fan-img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-right { position: relative; overflow: hidden; background: #1a0a0e; }
+  .hero-fan-img { width: 100%; height: 100%; object-fit: contain; object-position: center center; max-height: 100vh; display: block; }
   .hero-right-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(250,246,240,0.3) 0%, transparent 30%); }
   .hero-floater { position: absolute; bottom: 48px; left: 32px; background: white; padding: 16px 24px; box-shadow: 0 8px 40px rgba(139,26,43,0.15); border-left: 3px solid var(--gold); }
   .hero-floater strong { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; color: var(--crimson); display: block; }
@@ -703,7 +703,7 @@ const PRODUCTS = [
     price: 35,
     category: "flamenco",
     badge: "valencia",
-    img: "fallera.jepg"
+    img: "fallera.jpeg"
   },
   {
     id: 4,
