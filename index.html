@@ -117,8 +117,8 @@
   .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
   .product-card { background: white; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; position: relative; }
   .product-card:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(139,26,43,0.12); }
-  .product-img { aspect-ratio: 4/3; overflow: hidden; position: relative; background: #1a0a0e; }
-  .product-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; background: #1a0a0e; transition: transform 0.5s ease; }
+  .product-img { aspect-ratio: 16/10; overflow: hidden; position: relative; background: #f5f0eb; }
+  .product-img img { width: 100%; height: 100%; object-fit: contain; object-position: center center; background: #f5f0eb; transition: transform 0.5s ease; }
   .product-card:hover .product-img img { transform: scale(1.05); }
   .product-img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: linear-gradient(135deg, #EDE4D6, #D4B8A8); }
   .product-img-placeholder p { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--crimson); opacity: 0.6; }
