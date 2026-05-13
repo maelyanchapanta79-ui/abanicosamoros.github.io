@@ -434,10 +434,9 @@
 <div class="handmade-sec">
   <div class="handmade-inner">
     <div class="handmade-imgs" id="handmadeImgs">
-      <!-- Filled by JS with product images -->
-      <div class="handmade-img-wrap tall"><div style="width:100%;height:412px;background:linear-gradient(160deg,#8B1A2B,#1A0A0E);display:flex;align-items:center;justify-content:center"><span style="color:rgba(255,255,255,0.2);font-family:Playfair Display,serif;font-size:14px;letter-spacing:0.2em">AMORÓS</span></div></div>
-      <div class="handmade-img-wrap"><div style="width:100%;height:200px;background:linear-gradient(135deg,#C9963A,#8B1A2B);display:flex;align-items:center;justify-content:center"><span style="color:rgba(255,255,255,0.2);font-size:12px;font-family:Jost,sans-serif;letter-spacing:0.15em">PINTADO A MANO</span></div></div>
-      <div class="handmade-img-wrap"><div style="width:100%;height:200px;background:linear-gradient(135deg,#EDE4D6,#D4B8A8);display:flex;align-items:center;justify-content:center"><span style="color:rgba(139,26,43,0.3);font-size:12px;font-family:Jost,sans-serif;letter-spacing:0.15em">VALENCIA</span></div></div>
+      <div class="handmade-img-wrap tall"><img src="arbol.jpeg" alt="Árbol de la Vida" style="width:100%;height:412px;object-fit:cover;display:block;"></div>
+      <div class="handmade-img-wrap"><img src="adele.jpeg" alt="Adele Klimt" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+      <div class="handmade-img-wrap"><img src="mediterraneo.jpeg" alt="Mediterráneo" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
     </div>
     <div class="handmade-text">
       <div class="sec-eyebrow"><span>El proceso</span></div>
@@ -763,11 +762,14 @@ function getFallbackHTML(name, h) {
   return `<div style="width:100%;height:${h};background:linear-gradient(135deg,#EDE4D6,#D4B8A8);display:flex;align-items:center;justify-content:center"><p style="font-size:11px;color:var(--crimson);opacity:0.5;letter-spacing:0.15em;text-transform:uppercase">${name}</p></div>`;
 }
 
-function loadHeroImg() {
-  // Hero usa gradiente del primer producto
+  function loadHeroImg() {
   const heroImg = document.getElementById('heroImg');
   if (heroImg) {
-    heroImg.outerHTML = `<div style="width:100%;height:100%;background:linear-gradient(135deg,#8B4513 0%,#D2691E 25%,#7CFC00 55%,#4169E1 100%);display:flex;align-items:center;justify-content:center"><div style="text-align:center;padding:24px"><div style="opacity:0.2">${fanSVG}</div><p style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-family:Jost,sans-serif;margin-top:12px">Abanico Sorolla · Pintado a mano</p></div></div>`;
+    heroImg.src = 'sorolla.jpeg';
+    heroImg.style.width = '100%';
+    heroImg.style.height = '100%';
+    heroImg.style.objectFit = 'cover';
+    heroImg.style.objectPosition = 'center';
   }
 }
 
