@@ -751,7 +751,7 @@ window.addEventListener('DOMContentLoaded', () => {
 function getProductImgHTML(p, large=false) {
   const h = large ? '260px' : '220px';
   if (p.img) {
-    return `<img src="${p.img}" alt="${p.name}" style="width:100%;height:${h};object-fit:cover;display:block;" onerror="this.parentNode.innerHTML=getFallbackHTML('${p.name}','${h}')">`;
+    return `<img src="${p.img}" alt="${p.name}" style="width:100%;height:${h};object-fit:contain;object-position:center top;display:block;" onerror="this.parentNode.innerHTML=getFallbackHTML('${p.name}','${h}')">`;
   }
   return getFallbackHTML(p.name, h);
 }
