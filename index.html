@@ -296,6 +296,58 @@
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; }
   .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.25); }
 
+  /* MOBILE MENU BURGER */
+  .menu-burger { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--ink); align-items: center; justify-content: center; transition: color 0.2s; }
+  .menu-burger:hover { color: var(--crimson); }
+
+  /* MOBILE NAV OVERLAY */
+  .mobile-nav-overlay { position: fixed; inset: 0; background: #080204; z-index: 5000; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
+  .mobile-nav-overlay.open { opacity: 1; pointer-events: all; }
+  .mobile-nav-top { display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .mobile-nav-close { background: none; border: none; font-size: 26px; color: white; cursor: pointer; opacity: 0.75; line-height: 1; transition: opacity 0.2s; }
+  .mobile-nav-close:hover { opacity: 1; }
+  .mobile-nav-brand { font-family: 'Playfair Display', serif; font-size: 18px; color: white; letter-spacing: 0.12em; text-transform: uppercase; }
+  .mobile-nav-links { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 36px; gap: 0; }
+  .mobile-nav-link { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 400; color: white; text-decoration: none; line-height: 1.55; opacity: 0; transform: translateX(-28px); transition: opacity 0.35s ease, transform 0.35s ease, color 0.2s; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 6px 0; }
+  .mobile-nav-overlay.open .mobile-nav-link { opacity: 1; transform: translateX(0); }
+  .mobile-nav-overlay.open .mobile-nav-link:nth-child(1) { transition-delay: 0.06s; }
+  .mobile-nav-overlay.open .mobile-nav-link:nth-child(2) { transition-delay: 0.12s; }
+  .mobile-nav-overlay.open .mobile-nav-link:nth-child(3) { transition-delay: 0.18s; }
+  .mobile-nav-overlay.open .mobile-nav-link:nth-child(4) { transition-delay: 0.24s; }
+  .mobile-nav-overlay.open .mobile-nav-link:nth-child(5) { transition-delay: 0.30s; }
+  .mobile-nav-link:last-child { border-bottom: none; }
+  .mobile-nav-link:hover { color: var(--crimson-light); }
+  .mobile-nav-footer { padding: 28px 36px; display: flex; gap: 18px; align-items: center; border-top: 1px solid rgba(255,255,255,0.07); }
+  .mobile-nav-flag { font-size: 24px; opacity: 0.6; cursor: pointer; transition: opacity 0.2s; }
+  .mobile-nav-flag:hover { opacity: 1; }
+
+  /* PRODUCT DETAIL MODAL */
+  .pd-overlay { position: fixed; inset: 0; background: rgba(26,10,14,0.75); z-index: 4000; display: none; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(6px); }
+  .pd-overlay.open { display: flex; }
+  .pd-modal { background: white; max-width: 800px; width: 100%; max-height: 92vh; overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr; box-shadow: 0 40px 120px rgba(139,26,43,0.25); }
+  .pd-img-side { background: #f5f0eb; overflow: hidden; min-height: 340px; position: relative; display: flex; align-items: center; justify-content: center; }
+  .pd-img-side img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .pd-info-side { padding: 36px 32px; display: flex; flex-direction: column; gap: 14px; }
+  .pd-close-btn { position: absolute; top: 12px; right: 12px; background: rgba(26,10,14,0.65); color: white; border: none; width: 34px; height: 34px; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; z-index: 1; transition: background 0.2s; }
+  .pd-close-btn:hover { background: var(--crimson); }
+  .pd-badge-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pd-name { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 400; line-height: 1.2; }
+  .pd-sub { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+  .pd-desc { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--ink-soft); line-height: 1.8; }
+  .pd-divider { height: 1px; background: rgba(139,26,43,0.1); }
+  .pd-handmade-row { display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--gold); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .pd-price { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--crimson); font-weight: 400; }
+  .pd-price small { font-family: 'Jost', sans-serif; font-size: 12px; color: var(--text-muted); font-weight: 400; }
+  .pd-note { font-size: 11px; color: var(--text-muted); text-align: center; }
+  .pd-actions { display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 8px; }
+  @media (max-width: 620px) {
+    .pd-modal { grid-template-columns: 1fr; }
+    .pd-img-side { min-height: 240px; }
+    .pd-info-side { padding: 24px 20px; }
+    .pd-name { font-size: 20px; }
+    .pd-price { font-size: 26px; }
+  }
+
   /* TOAST */
   .toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--crimson-dark); color: white; padding: 14px 28px; font-size: 13px; font-family: 'Jost', sans-serif; z-index: 9999; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 32px rgba(139,26,43,0.3); white-space: nowrap; }
   .toast.show { transform: translateX(-50%) translateY(0); }
@@ -304,6 +356,7 @@
   @media (max-width: 900px) {
     nav { padding: 0 24px; }
     .nav-links { display: none; }
+    .menu-burger { display: flex; }
     .hero { grid-template-columns: 1fr; }
     .hero-right { min-height: 280px; }
     .hero-left { padding: 60px 28px; }
@@ -338,12 +391,36 @@
     <li><a href="#contacto">Contacto</a></li>
   </ul>
   <div class="nav-right">
+    <button class="menu-burger" onclick="openMobileNav()" aria-label="Menú">
+      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
+    </button>
     <button class="cart-btn" onclick="openCart()" aria-label="Carrito">
       <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/></svg>
       <span class="cart-count" id="cartCount">0</span>
     </button>
   </div>
 </nav>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-top">
+    <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+    <span class="mobile-nav-brand">Amorós</span>
+    <div style="width:36px"></div>
+  </div>
+  <nav class="mobile-nav-links">
+    <a class="mobile-nav-link" href="#" onclick="closeMobileNav()">Inicio</a>
+    <a class="mobile-nav-link" href="#tienda" onclick="closeMobileNav()">Colección</a>
+    <a class="mobile-nav-link" href="#encargo" onclick="closeMobileNav()">Encargos</a>
+    <a class="mobile-nav-link" href="#artista" onclick="closeMobileNav()">El artista</a>
+    <a class="mobile-nav-link" href="#contacto" onclick="closeMobileNav()">Contacto</a>
+  </nav>
+  <div class="mobile-nav-footer">
+    <span class="mobile-nav-flag" title="English">🇬🇧</span>
+    <span class="mobile-nav-flag" title="Français">🇫🇷</span>
+    <span class="mobile-nav-flag" title="Español">🇪🇸</span>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -657,6 +734,14 @@
   </div>
 </div>
 
+<!-- PRODUCT DETAIL MODAL -->
+<div class="pd-overlay" id="pdOverlay" onclick="closePDOutside(event)">
+  <div class="pd-modal" id="pdModal">
+    <div class="pd-img-side" id="pdImgSide"></div>
+    <div class="pd-info-side" id="pdInfoSide"></div>
+  </div>
+</div>
+
 <div class="toast" id="toast">
   <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
   <span id="toastMsg">Añadido al carrito</span>
@@ -775,7 +860,7 @@ function renderProducts(filter='todos') {
   const grid = document.getElementById('productsGrid');
   const filtered = filter === 'todos' ? PRODUCTS : PRODUCTS.filter(p => p.category === filter);
   grid.innerHTML = filtered.map(p => `
-    <div class="product-card" data-id="${p.id}">
+    <div class="product-card" data-id="${p.id}" onclick="openProductDetail(${p.id})" style="cursor:pointer">
       <div class="product-img">
         ${getProductImgHTML(p)}
         <div class="product-badge-wrap">
@@ -930,6 +1015,48 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3200);
 }
+
+// ── MOBILE NAV ──
+function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow = ''; }
+
+// ── PRODUCT DETAIL ──
+function openProductDetail(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('pdImgSide').innerHTML = `
+    <button class="pd-close-btn" onclick="closePDModal()">✕</button>
+    <img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none'">
+  `;
+  document.getElementById('pdInfoSide').innerHTML = `
+    <div class="pd-badge-row">
+      ${p.badge === 'new' ? '<span class="badge badge-new">Nuevo</span>' : ''}
+      ${p.badge === 'valencia' ? '<span class="badge badge-valencia">Valencia</span>' : ''}
+      <span class="badge badge-hecho">✦ A mano</span>
+    </div>
+    <h2 class="pd-name">${p.name}</h2>
+    <p class="pd-sub">${p.sub}</p>
+    <div class="pd-divider"></div>
+    <p class="pd-desc">${p.desc}</p>
+    <div class="pd-handmade-row">
+      <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+      Pintado a mano · Valencia
+    </div>
+    <div class="pd-divider"></div>
+    <div>
+      <span class="pd-price">${p.price.toFixed(2).replace('.',',')} <small>€</small></span>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:3px">IVA incl. · Envío incluido en España</p>
+    </div>
+    <div class="pd-actions">
+      <button class="btn-cta" style="width:100%;text-align:center" onclick="addToCart(${p.id},event);closePDModal()"><span>Añadir al carrito</span></button>
+      <p class="pd-note">Obra única · Firmada y certificada por el artista</p>
+    </div>
+  `;
+  document.getElementById('pdOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePDModal() { document.getElementById('pdOverlay').classList.remove('open'); document.body.style.overflow = ''; }
+function closePDOutside(e) { if (e.target === document.getElementById('pdOverlay')) closePDModal(); }
 
 window.addEventListener('scroll', () => {
   document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
