@@ -333,14 +333,14 @@
   .menu-burger:hover { color: var(--crimson); }
 
   /* MOBILE NAV OVERLAY */
-  .mobile-nav-overlay { position: fixed; inset: 0; background: #080204; z-index: 5000; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
+  .mobile-nav-overlay { position: fixed; inset: 0; background: #080204 !important; z-index: 5000; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
   .mobile-nav-overlay.open { opacity: 1; pointer-events: all; }
   .mobile-nav-top { display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; border-bottom: 1px solid rgba(255,255,255,0.07); }
   .mobile-nav-close { background: none; border: none; font-size: 26px; color: white; cursor: pointer; opacity: 0.75; line-height: 1; transition: opacity 0.2s; }
   .mobile-nav-close:hover { opacity: 1; }
   .mobile-nav-brand { font-family: 'Playfair Display', serif; font-size: 18px; color: white; letter-spacing: 0.12em; text-transform: uppercase; }
   .mobile-nav-links { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 36px; gap: 0; }
-  .mobile-nav-link { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 400; color: white; text-decoration: none; line-height: 1.55; opacity: 0; transform: translateX(-28px); transition: opacity 0.35s ease, transform 0.35s ease, color 0.2s; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 6px 0; }
+  .mobile-nav-link { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 400; color: #ffffff; text-decoration: none; line-height: 1.55; opacity: 0; transform: translateX(-28px); transition: opacity 0.35s ease, transform 0.35s ease, color 0.2s; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 6px 0; }
   .mobile-nav-overlay.open .mobile-nav-link { opacity: 1; transform: translateX(0); }
   .mobile-nav-overlay.open .mobile-nav-link:nth-child(1) { transition-delay: 0.06s; }
   .mobile-nav-overlay.open .mobile-nav-link:nth-child(2) { transition-delay: 0.12s; }
@@ -451,13 +451,13 @@
     <span class="mobile-nav-brand">Amorós</span>
     <div style="width:36px"></div>
   </div>
-  <nav class="mobile-nav-links">
+  <div class="mobile-nav-links">
     <a class="mobile-nav-link" href="#" onclick="closeMobileNav()">Inicio</a>
     <a class="mobile-nav-link" href="#tienda" onclick="closeMobileNav()">Colección</a>
     <a class="mobile-nav-link" href="#encargo" onclick="closeMobileNav()">Encargos</a>
     <a class="mobile-nav-link" href="#artista" onclick="closeMobileNav()">El artista</a>
     <a class="mobile-nav-link" href="#contacto" onclick="closeMobileNav()">Contacto</a>
-  </nav>
+  </div>
   <div class="mobile-nav-footer">
     <span class="mobile-nav-flag" title="English">🇬🇧</span>
     <span class="mobile-nav-flag" title="Français">🇫🇷</span>
