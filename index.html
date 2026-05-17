@@ -164,30 +164,32 @@
   .filter-btn { padding: 9px 22px; background: none; border: 1px solid var(--linen); font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; color: var(--muted); transition: all 0.2s; margin-left: -1px; font-weight: 500; }
   .filter-btn:first-child { margin-left: 0; }
   .filter-btn.active, .filter-btn:hover { background: var(--rouge); color: white; border-color: var(--rouge); z-index: 1; }
-  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--linen); }
-  .product-card { background: white; cursor: pointer; transition: box-shadow 0.3s; position: relative; display: flex; flex-direction: column; }
-  .product-card:hover { box-shadow: 0 20px 60px rgba(28,10,13,0.12); z-index: 1; }
-  .product-img { overflow: hidden; position: relative; background: var(--ivory-dark); aspect-ratio: 4/3; }
-  .product-img img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 0.5s ease; }
-  .product-card:hover .product-img img { transform: scale(1.06); }
+  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .product-card { background: white; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; position: relative; display: flex; flex-direction: column; }
+  .product-card:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(28,10,13,0.12); z-index: 1; }
+  .product-img { aspect-ratio: 3/2; overflow: visible; position: relative; background: #f5f0eb; }
+  .product-img img { width: 100%; height: auto; object-fit: contain; display: block; background: #f5f0eb; transition: transform 0.5s ease; }
+  .product-card:hover .product-img img { transform: scale(1.05); }
   .product-badge-wrap { position: absolute; top: 14px; left: 14px; display: flex; flex-direction: column; gap: 5px; z-index: 1; }
   .badge { padding: 4px 10px; font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
   .badge-hecho { background: var(--ink); color: white; }
   .badge-new { background: var(--gold); color: white; }
   .badge-valencia { background: var(--rouge); color: white; }
-  .product-overlay { position: absolute; inset: 0; background: rgba(28,10,13,0); display: flex; align-items: flex-end; transition: background 0.3s; }
-  .product-card:hover .product-overlay { background: rgba(28,10,13,0.45); }
-  .product-add-btn { width: 100%; padding: 13px; background: var(--rouge); color: white; border: none; font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; font-weight: 600; transform: translateY(100%); transition: transform 0.3s; }
-  .product-card:hover .product-add-btn { transform: translateY(0); }
+  .product-actions { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(26,10,14,0.92); padding: 14px; transform: translateY(100%); transition: transform 0.3s; display: flex; gap: 10px; }
+  .product-card:hover .product-actions { transform: translateY(0); }
+  .btn-add-cart { flex: 1; padding: 12px; background: var(--rouge); color: white; border: none; font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; font-weight: 500; }
+  .btn-add-cart:hover { background: var(--rouge-deep); }
   .product-info { padding: 20px 22px 24px; flex: 1; display: flex; flex-direction: column; }
   .product-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 400; margin-bottom: 5px; color: var(--ink); }
-  .product-sub { font-size: 12px; color: var(--muted); line-height: 1.55; margin-bottom: 16px; flex: 1; }
+  .product-sub { font-size: 12px; color: var(--muted); line-height: 1.55; margin-bottom: 12px; flex: 1; }
+  .product-handmade { display: flex; align-items: center; gap: 5px; font-size: 10px; color: var(--gold); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
   .product-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid var(--linen); }
   .product-price { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; color: var(--rouge); }
   .product-price small { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--muted); font-weight: 400; }
-  .product-cart-btn { width: 36px; height: 36px; background: var(--rouge); color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
-  .product-cart-btn:hover { background: var(--rouge-deep); }
-  @media (max-width:900px) { #tienda { padding: 64px 20px; } .products-grid { grid-template-columns: 1fr 1fr; } .shop-header { flex-direction: column; gap: 20px; align-items: flex-start; } }
+  .price-note { font-size: 10px; color: var(--muted); margin-top: 6px; }
+  .btn-mini-cart { width: 38px; height: 38px; background: var(--rouge); color: white; border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+  .btn-mini-cart:hover { background: var(--rouge-deep); }
+  @media (max-width:900px) { #tienda { padding: 64px 20px; } .products-grid { grid-template-columns: 1fr 1fr; gap: 16px; } .shop-header { flex-direction: column; gap: 20px; align-items: flex-start; } }
   @media (max-width:500px) { .products-grid { grid-template-columns: 1fr; } }
 
   /* HANDMADE */
@@ -776,7 +778,7 @@ const PRODUCTS = [
 function getProductImgHTML(p,h='220px'){if(p.img)return`<img src="${p.img}" alt="${p.name}" style="width:100%;height:${h};object-fit:contain;object-position:center top;display:block;" onerror="this.parentNode.innerHTML=getFallbackHTML('${p.name}','${h}')">`;return getFallbackHTML(p.name,h);}
 function getFallbackHTML(name,h){return`<div style="width:100%;height:${h};background:var(--ivory-dark);display:flex;align-items:center;justify-content:center"><p style="font-size:11px;color:var(--rouge);opacity:0.5;letter-spacing:0.15em;text-transform:uppercase">${name}</p></div>`;}
 window.addEventListener('DOMContentLoaded',()=>renderProducts());
-function renderProducts(filter='todos'){const grid=document.getElementById('productsGrid');const list=filter==='todos'?PRODUCTS:PRODUCTS.filter(p=>p.category===filter);grid.innerHTML=list.map(p=>`<div class="product-card" onclick="openProductDetail(${p.id})"><div class="product-img">${getProductImgHTML(p)}<div class="product-badge-wrap">${p.badge==='new'?'<span class="badge badge-new">Nuevo</span>':''}${p.badge==='valencia'?'<span class="badge badge-valencia">Valencia</span>':''}<span class="badge badge-hecho">✦ A mano</span></div><div class="product-overlay"><button class="product-add-btn" onclick="addToCart(${p.id},event)">Añadir al carrito</button></div></div><div class="product-info"><p class="product-name">${p.name}</p><p class="product-sub">${p.sub}</p><div class="product-footer"><div><span class="product-price">${p.price.toFixed(2).replace('.',',')} <small>€</small></span><p style="font-size:10px;color:var(--muted);margin-top:3px">IVA incl. · Envío incluido</p></div><button class="product-cart-btn" onclick="addToCart(${p.id},event)" title="Añadir"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button></div></div></div>`).join('');}
+function renderProducts(filter='todos'){const grid=document.getElementById('productsGrid');const list=filter==='todos'?PRODUCTS:PRODUCTS.filter(p=>p.category===filter);grid.innerHTML=list.map(p=>`<div class="product-card" data-id="${p.id}" onclick="openProductDetail(${p.id})"><div class="product-img">${getProductImgHTML(p)}<div class="product-badge-wrap">${p.badge==='new'?'<span class="badge badge-new">Nuevo</span>':''}${p.badge==='valencia'?'<span class="badge badge-valencia">Valencia</span>':''}<span class="badge badge-hecho">✦ A mano</span></div><div class="product-actions"><button class="btn-add-cart" onclick="addToCart(${p.id},event)">Añadir al carrito</button></div></div><div class="product-info"><p class="product-name">${p.name}</p><p class="product-sub">${p.sub}</p><div class="product-handmade"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>Pintado a mano · Valencia</div><div class="product-footer"><div><span class="product-price">${p.price.toFixed(2).replace('.',',')} <small>€</small></span><p class="price-note">IVA incl. · Envío incluido en España</p></div><button class="btn-mini-cart" onclick="addToCart(${p.id},event)" title="Añadir al carrito"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button></div></div></div>`).join('');}
 function filterProducts(cat,btn){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderProducts(cat);}
 let cart=[];
 function addToCart(id,e){e&&e.stopPropagation();const p=PRODUCTS.find(x=>x.id===id);const ex=cart.find(x=>x.id===id);if(ex)ex.qty++;else cart.push({...p,qty:1});updateCart();showToast(`"${p.name}" añadido al carrito`);}
